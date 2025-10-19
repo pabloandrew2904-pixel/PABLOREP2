@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki: Detrás de la Carne</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="antialiased">
+    <!-- Scroll progress indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header text-center">
+            <h1 class="mb-2">Wiki: Detrás de la Carne</h1>
+            <p>Análisis Integral del Documental</p>
+        </header>
+
+        <!-- Interactive Index -->
+        <section id="indice" class="section-card">
+            <h2>Índice Interactivo</h2>
+            <ol class="list-decimal list-inside space-y-2 md:space-y-1 md:columns-2 lg:columns-3 index-list">
+                <li><a href="#informacion-grupo" class="hover:underline">Información del Grupo</a></li>
+                <li><a href="#introduccion" class="hover:underline">Introducción</a></li>
+                <li><a href="#contexto-general" class="hover:underline">Contexto General</a></li>
+                <li><a href="#dimension-etica-animal" class="hover:underline">Dimensión Ética y Animal</a></li>
+                <li><a href="#dimension-ambiental" class="hover:underline">Dimensión Ambiental</a></li>
+                <li><a href="#dimension-social-laboral" class="hover:underline">Dimensión Social y Laboral</a></li>
+                <li><a href="#dimension-salud" class="hover:underline">Dimensión de Salud</a></li>
+                <li><a href="#dimension-economica" class="hover:underline">Dimensión Económica</a></li>
+                <li><a href="#alternativas-soluciones" class="hover:underline">Alternativas y Soluciones</a></li>
+                <li><a href="#reflexiones-finales" class="hover:underline">Reflexiones Finales</a></li>
+                <li><a href="#referencias-recursos" class="hover:underline">Referencias y Recursos</a></li>
+            </ol>
+        </section>
+
+        <!-- Información del Grupo -->
+        <section id="informacion-grupo" class="section-card">
+            <h2>Información del Grupo</h2>
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    <span>Ver Detalles del Grupo</span>
+                    <span class="toggle-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <ul class="list-disc list-inside ml-4 space-y-2 text-gray-700">
+                        <li><strong>Nombres:</strong> Madelyn García y Betsabe Fernández</li>
+                        <li><strong>Carrera:</strong> Pedagogía en Lengua y Literatura</li>
+                        <li><strong>Semestre:</strong> Primer Semestre</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introducción -->
+        <section id="introduccion" class="section-card">
+            <h2>1. Introducción</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3>¿Qué es "Detrás de la Carne"?</h3>
+                    <p>
+                        "Detrás de la Carne" (o "Tras la Carne") es un documental investigativo que revela la realidad oculta de la industria cárnica, específicamente enfocado en la producción avícola y ganadera. El documental busca exponer los impactos éticos, ambientales, sanitarios y sociales del consumo masivo de productos de origen animal.
+                    </p>
+                </div>
+                <div>
+                    <h3>Objetivos del Documental</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li>Visibilizar prácticas que la industria mantiene ocultas</li>
+                        <li>Generar conciencia sobre el impacto multidimensional del consumo de carne</li>
+                        <li>Promover la reflexión sobre nuestras elecciones alimenticias</li>
+                        <li>Presentar alternativas sostenibles y compasivas</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Voces Participantes</h3>
+                    <p>El documental incluye testimonios de activistas, veterinarios, nutricionistas, fundadores de santuarios y trabajadores de la industria, quienes ofrecen diferentes perspectivas sobre el tema.</p>
+                </div>
+                <div class="mt-8">
+                    <h3>Ver el Documental (Fragmento)</h3>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/YZVB-LQndfo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contexto General -->
+        <section id="contexto-general" class="section-card">
+            <h2>2. Contexto General</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3>Datos de la Industria Cárnica Global</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li><strong>Producción Anual:</strong> 65,000 millones de animales sacrificados anualmente a nivel mundial, con una proyección de duplicación del consumo en 40 años.</li>
+                        <li><strong>Tipos de Producción:</strong> Intensiva/Industrial, Extensiva/Tradicional y Regenerativa.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>La Industria en Latinoamérica</h3>
+                    <p>Chile, Argentina y México tienen grandes industrias cárnicas, caracterizadas por la falta de transparencia y regulación efectiva, con un crecimiento exponencial en las últimas décadas y un impacto significativo en comunidades rurales e indígenas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dimensión Ética y Animal -->
+        <section id="dimension-etica-animal" class="section-card">
+            <h2>3. Dimensión Ética y Animal</h2>
+            <div class="space-y-4">
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>3.1 Condiciones en Mataderos</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>El documental expone el proceso de matanza, incluyendo el aturdimiento, y la controversia sobre si realmente elimina el miedo o la conciencia del animal. Se destaca cómo la industria mantiene estos procesos ocultos al público.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>3.2 Condiciones en Granjas Industriales</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Describe el hacinamiento, la iluminación artificial, la manipulación genética, los problemas de locomoción y las mutilaciones sin anestesia en granjas avícolas. En granjas de ganado, se mencionan el confinamiento, la separación temprana de crías, la inseminación artificial forzada y el uso intensivo de antibióticos y hormonas.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>3.3 Sintiencia Animal</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Se enfatiza que los animales de granja son seres sintientes que experimentan dolor, miedo, estrés y angustia, formando vínculos sociales. Evidencia científica respalda la consciencia en aves y mamíferos con sistemas nerviosos complejos.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>3.4 Cuestiones Morales</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Aborda el especismo (discriminación basada en la especie) y la desconexión cognitiva, donde la ideología del carnismo justifica el consumo de animales a pesar del amor general por ellos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dimensión Ambiental -->
+        <section id="dimension-ambiental" class="section-card">
+            <h2>4. Dimensión Ambiental</h2>
+            <div class="space-y-4">
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>4.1 Contribución al Cambio Climático</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>La ganadería es una de las principales fuentes de emisiones de gases de efecto invernadero, como el metano, más potente que el CO2. Se compara la huella de carbono de la carne de res, pollo y legumbres, mostrando la ineficiencia del primero.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>4.2 Deforestación</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>El 80% de la deforestación en la Amazonía se atribuye a la ganadería, lo que resulta en pérdida de biodiversidad, desplazamiento de comunidades indígenas y destrucción de ecosistemas. El 77% de la tierra agrícola mundial se usa para ganadería, produciendo solo el 18% de las calorías globales, lo que destaca una ineficiencia extrema.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>4.3 Uso de Recursos Naturales</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>La producción de carne requiere una cantidad masiva de agua (15,000 litros para 1 kg de carne de res) y tierra, compitiendo con la producción de alimentos humanos y contaminando acuíferos.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>4.4 Contaminación</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Los desechos animales masivos contaminan ríos y suelos, causando eutrofización. Además, químicos como antibióticos, hormonas y pesticidas de cultivos forrajeros llegan al medio ambiente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dimensión Social y Laboral -->
+        <section id="dimension-social-laboral" class="section-card">
+            <h2>5. Dimensión Social y Laboral</h2>
+            <div class="space-y-4">
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>5.1 Condiciones Laborales</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Los trabajadores de mataderos enfrentan salarios bajos, condiciones precarias, altos riesgos de accidentes y lesiones, y trauma psicológico (TEPT) por el sacrificio constante de animales. También se documenta la explotación de migrantes.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>5.2 Impacto en Comunidades</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>La expansión de la industria cárnica provoca el desplazamiento de comunidades indígenas y pequeños agricultores. La contaminación local (olores, residuos) afecta la calidad de vida y devalúa propiedades.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>5.3 Seguridad Alimentaria</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Existe una paradoja del hambre: se cultiva una gran cantidad de alimentos para animales mientras persiste el hambre humana. La carne es costosa, lo que limita su acceso, y los recursos podrían alimentar a más personas directamente si se enfocaran en cultivos para consumo humano.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dimensión de Salud -->
+        <section id="dimension-salud" class="section-card">
+            <h2>6. Dimensión de Salud</h2>
+            <div class="space-y-4">
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>6.1 Riesgos del Consumo Excesivo de Carne</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>El consumo elevado de carne está vinculado a enfermedades cardiovasculares, ciertos tipos de cáncer (especialmente carne roja y procesada), diabetes tipo 2 y obesidad, debido a grasas saturadas, colesterol, hierro hemo y compuestos carcinógenos.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>6.2 Resistencia a Antibióticos</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>El uso masivo de antibióticos en la ganadería para promover el crecimiento ha llevado a la aparición de "superbacterias" resistentes, generando una crisis de salud pública global con infecciones humanas intratables.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>6.3 Contaminantes</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>La carne puede contener residuos de hormonas, antibióticos, dioxinas y metales pesados, que actúan como disruptores endocrinos y se acumulan en el tejido adiposo humano, con efectos a largo plazo aún poco estudiados.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>6.4 Enfermedades Zoonóticas</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>El 75% de las enfermedades emergentes provienen de animales, y las granjas industriales son ambientes ideales para la mutación y propagación de virus (gripe aviar, porcina, COVID-19), aumentando el riesgo de pandemias.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dimensión Económica -->
+        <section id="dimension-economica" class="section-card">
+            <h2>7. Dimensión Económica</h2>
+            <div class="space-y-4">
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>7.1 Poder de la Industria</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Unas pocas empresas controlan la mayor parte de la producción cárnica, ejerciendo gran influencia en políticas y precios. Los subsidios gubernamentales reducen artificialmente los costos, creando una competencia desleal con alternativas vegetales.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>7.2 Costos Ocultos</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>La industria no contabiliza las externalidades negativas como el daño ambiental, los costos de salud pública y la pérdida de biodiversidad. Si estos costos se internalizaran, la carne sería mucho más cara.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>7.3 Economía de Alternativas</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>El mercado vegano está experimentando un crecimiento acelerado globalmente, con innovación en productos plant-based y carne cultivada, generando nuevas oportunidades de empleo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alternativas y Soluciones -->
+        <section id="alternativas-soluciones" class="section-card">
+            <h2>8. Alternativas y Soluciones</h2>
+            <div class="space-y-4">
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>8.1 Alimentación Basada en Plantas</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Se destacan los beneficios nutricionales de las legumbres, tofu, tempeh, seitán, quinoa, espinacas y semillas, que aportan proteínas, hierro, calcio y omega-3. Hay una gran variedad de recetas y productos sustitutos cada vez más realistas.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>8.2 Reducción Gradual</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Estrategias prácticas incluyen "Lunes sin carne", "Vegano antes de las 6", reducir porciones de carne y sustituir productos animales por vegetales.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>8.3 Consumo Responsable</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Si se consume carne, se recomienda reducir la cantidad y frecuencia, priorizar la producción local y extensiva, evitar carne procesada y conocer la procedencia del producto.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>8.4 Activismo y Educación</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Se anima a informarse, apoyar organizaciones de defensa animal, exigir transparencia a las empresas y participar en iniciativas locales. A nivel sistémico, se busca presión política para regulaciones, apoyo a la investigación de alternativas y educación en escuelas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reflexiones Finales -->
+        <section id="reflexiones-finales" class="section-card">
+            <h2>9. Reflexiones Finales</h2>
+            <div class="space-y-4">
+                <p>El documental "Detrás de la Carne" visibiliza una realidad oculta que la industria prefiere mantener en secreto. Resalta la desconexión moderna de los consumidores con el origen de sus alimentos, lo que perpetúa prácticas que la mayoría rechazaría si las conociera.</p>
+                <p>El cambio comienza con las decisiones individuales, pero tiene un impacto colectivo. Nos invita a reflexionar sobre la coherencia entre nuestros valores (amor por los animales, preocupación por el planeta, valoración de la salud) y nuestras elecciones alimenticias.</p>
+                <p>El futuro de la alimentación se orienta hacia una mayor conciencia, la reducción del consumo de productos animales, la innovación en alternativas plant-based y sistemas alimentarios más sostenibles. El mensaje final es de esperanza: cada acción, por pequeña que sea, contribuye al progreso. "No necesitamos un puñado de personas haciendo el veganismo perfectamente. Necesitamos millones de personas haciéndolo imperfectamente."</p>
+            </div>
+        </section>
+
+        <!-- Referencias y Recursos -->
+        <section id="referencias-recursos" class="section-card">
+            <h2>10. Referencias y Recursos</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3>Organizaciones Mencionadas</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li><strong>Animal Libre:</strong> Organización internacional enfocada en Latinoamérica, dedicada a investigaciones encubiertas, educación y concienciación.</li>
+                        <li><strong>Santuarios de Animales:</strong> Espacios de rescate que demuestran la personalidad y necesidades de los animales de granja.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Documentales Relacionados</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li>Earthlings (2005)</li>
+                        <li>Cowspiracy (2014)</li>
+                        <li>What the Health (2017)</li>
+                        <li>Dominion (2018)</li>
+                        <li>The Game Changers (2018)</li>
+                        <li>Seaspiracy (2021)</li>
+                        <li>You Are What You Eat (Netflix)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Recursos de Transición</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li><strong>Nutrición:</strong> Consulta con nutricionistas especializados en alimentación vegetal, apps de seguimiento nutricional y guías de la Academia de Nutrición y Dietética.</li>
+                        <li><strong>Recetas y Cocina:</strong> Blogs especializados en cocina vegana, libros de cocina plant-based y canales de YouTube educativos.</li>
+                        <li><strong>Comunidad:</strong> Grupos locales de apoyo, redes sociales y eventos/talleres de la comunidad vegana.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Lectura Complementaria</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li>"Comer Animales" - Jonathan Safran Foer</li>
+                        <li>"Por qué amamos a los perros, nos comemos a los cerdos y nos vestimos con las vacas" - Melanie Joy</li>
+                        <li>"El Dilema del Omnívoro" - Michael Pollan</li>
+                        <li>Estudios Científicos (Informes de la ONU, OMS, investigaciones sobre resistencia antibióticos)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-600 mt-8 py-4 text-sm">
+            <p>&copy; Octubre 2025. Elaborado para fines educativos y de reflexión crítica.</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
