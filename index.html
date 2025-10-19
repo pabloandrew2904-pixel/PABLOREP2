@@ -225,8 +225,9 @@
             transition: left 0.5s ease;
         }
 
-        .accordion-button:hover::before {
-            left: 100%;
+        .accordion-button span:first-child {
+            flex: 1;
+            padding-right: 1rem;
         }
 
         .accordion-button:hover {
@@ -236,33 +237,43 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
+        .accordion-item {
+            margin-bottom: 1rem;
+        }
+
         .accordion-content {
             display: none;
             background: linear-gradient(135deg, #F9F5F1 0%, #F5F1ED 100%);
             border-radius: 0 0 1rem 1rem;
             margin-top: 0.5rem;
             border: 2px solid rgba(234, 224, 213, 0.5);
-            padding: 0;
-            transition: opacity 0.3s ease;
         }
 
         .accordion-content.active {
             display: block;
             padding: 1.5rem;
-            opacity: 1;
             box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
             animation: slideDown 0.3s ease-out;
         }
 
         .accordion-content p {
-            margin: 0;
+            margin: 0 0 1rem 0;
             line-height: 1.8;
             word-wrap: break-word;
             overflow-wrap: break-word;
+            white-space: normal;
+        }
+
+        .accordion-content p:last-child {
+            margin-bottom: 0;
         }
 
         .accordion-content ul {
-            margin: 0;
+            margin: 0 0 1rem 1.5rem;
+        }
+
+        .accordion-content ul:last-child {
+            margin-bottom: 0;
         }
 
         @keyframes slideDown {
