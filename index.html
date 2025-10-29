@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki: Detrás de la Carne</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Wiki: Detrás de la Carne - Mapa Conceptual</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -18,268 +17,152 @@
             background: linear-gradient(135deg, #FDF6F0 0%, #F5EDE3 50%, #EDE3D9 100%);
             background-attachment: fixed;
             color: #3D3D3D;
-            line-height: 1.8;
-            scroll-behavior: smooth;
-            position: relative;
+            line-height: 1.6;
             overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(141, 155, 106, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(234, 224, 213, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(92, 81, 72, 0.03) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-            animation: backgroundShift 20s ease-in-out infinite;
-        }
-
-        @keyframes backgroundShift {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(20px, 20px); }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
         }
 
         .header {
             background: linear-gradient(135deg, #EAE0D5 0%, #D5C6B7 100%);
-            padding: 3rem 2rem;
-            border-radius: 1.5rem;
-            margin-bottom: 3rem;
-            box-shadow: 
-                0 10px 40px rgba(0, 0, 0, 0.08),
-                0 2px 8px rgba(0, 0, 0, 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .header h1 {
             font-family: 'Playfair Display', serif;
             color: #5C5148;
-            font-size: 3rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
-            position: relative;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .header p {
             color: #7a6c5d;
-            font-size: 1.25rem;
-            font-weight: 300;
-            position: relative;
+            font-size: 1.1rem;
         }
 
-        .section-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 1.5rem;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.06),
-                0 2px 8px rgba(0, 0, 0, 0.04);
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: fadeInUp 0.6s ease-out backwards;
-            position: relative;
-        }
-
-        .section-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(141, 155, 106, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .section-card:hover::before {
-            left: 100%;
-        }
-
-        .section-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.12),
-                0 8px 16px rgba(0, 0, 0, 0.08);
-            border-color: rgba(141, 155, 106, 0.3);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section-card:nth-child(1) { animation-delay: 0.1s; }
-        .section-card:nth-child(2) { animation-delay: 0.2s; }
-        .section-card:nth-child(3) { animation-delay: 0.3s; }
-        .section-card:nth-child(4) { animation-delay: 0.4s; }
-        .section-card:nth-child(5) { animation-delay: 0.5s; }
-
-        .index-list a {
-            transition: all 0.3s ease;
-            font-weight: 500;
-            color: #8D9B6A;
-            position: relative;
-            display: inline-block;
-            padding: 2px 0;
-        }
-
-        .index-list a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #8D9B6A, #6B7A4A);
-            transition: width 0.3s ease;
-        }
-
-        .index-list a:hover {
-            color: #6B7A4A;
-            transform: translateX(4px);
-        }
-
-        .index-list a:hover::after {
-            width: 100%;
-        }
-
-        .accordion-button {
-            width: 100%;
-            text-align: left;
-            padding: 1.25rem 1.5rem;
-            background: linear-gradient(135deg, #EAE0D5 0%, #DDD3C8 100%);
+        .info-group {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            margin: 1rem auto;
+            max-width: 600px;
             border-radius: 1rem;
-            font-weight: 600;
+            text-align: center;
+        }
+
+        .info-group p {
+            margin: 0.3rem 0;
             color: #5C5148;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .main-concept {
+            background: linear-gradient(135deg, #8D9B6A 0%, #6B7A4A 100%);
+            color: white;
+            padding: 2rem 3rem;
+            border-radius: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            margin: 2rem auto;
+            max-width: 800px;
             cursor: pointer;
-            border: 2px solid transparent;
+            transition: all 0.3s ease;
             position: relative;
         }
 
-        .accordion-button::before {
+        .main-concept:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-concept h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .main-concept p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .branches-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .branch {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .branch::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
+            height: 5px;
+            background: linear-gradient(90deg, #8D9B6A, #6B7A4A);
         }
 
-        .accordion-button span:first-child {
-            flex: 1;
-            padding-right: 1rem;
+        .branch:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            border-color: #8D9B6A;
         }
 
-        .accordion-button:hover {
-            background: linear-gradient(135deg, #D5C6B7 0%, #C9BAAB 100%);
-            transform: translateX(8px);
-            border-color: rgba(141, 155, 106, 0.3);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        .branch-title {
+            font-family: 'Playfair Display', serif;
+            color: #5C5148;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .accordion-item {
-            margin-bottom: 1rem;
+        .branch-icon {
+            font-size: 2rem;
         }
 
-        .accordion-content {
+        .branch-preview {
+            color: #6B7A4A;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .mind-map {
             display: none;
-            background: linear-gradient(135deg, #F9F5F1 0%, #F5F1ED 100%);
-            border-radius: 0 0 1rem 1rem;
-            margin-top: 0.5rem;
-            border: 2px solid rgba(234, 224, 213, 0.5);
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+            animation: slideDown 0.5s ease;
         }
 
-        .accordion-content.active {
+        .mind-map.active {
             display: block;
-            padding: 1.5rem;
-            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
-            animation: slideDown 0.3s ease-out;
-        }
-
-        .accordion-content p {
-            margin: 0 0 1rem 0;
-            line-height: 1.8;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            white-space: normal;
-        }
-
-        .accordion-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .accordion-content ul {
-            margin: 0 0 1rem 1.5rem;
-        }
-
-        .accordion-content ul:last-child {
-            margin-bottom: 0;
         }
 
         @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(-20px);
             }
             to {
                 opacity: 1;
@@ -287,79 +170,85 @@
             }
         }
 
-        .accordion-content p,
-        .accordion-content ul {
-            animation: fadeIn 0.5s ease-out 0.2s backwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .toggle-icon {
-            font-size: 1.5rem;
-            font-weight: 300;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .toggle-icon.rotate {
-            transform: rotate(135deg);
-            background: rgba(141, 155, 106, 0.3);
-        }
-
-        .section-card h2 {
+        .mind-map-title {
             font-family: 'Playfair Display', serif;
             color: #5C5148;
             font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
+            margin-bottom: 2rem;
+            text-align: center;
+            border-bottom: 3px solid #8D9B6A;
+            padding-bottom: 1rem;
         }
 
-        .section-card h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60%;
-            height: 3px;
-            background: linear-gradient(90deg, #8D9B6A, transparent);
-            border-radius: 2px;
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
-        .section-card h3 {
+        @media (max-width: 900px) {
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .concept-card {
+            background: linear-gradient(135deg, #F9F5F1 0%, #F5F1ED 100%);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 5px solid #8D9B6A;
+            transition: all 0.3s ease;
+        }
+
+        .concept-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .concept-card h3 {
             color: #6B7A4A;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            position: relative;
-            padding-left: 16px;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
         }
 
-        .section-card h3::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 70%;
-            background: linear-gradient(180deg, #8D9B6A, #6B7A4A);
-            border-radius: 2px;
+        .concept-card p, .concept-card ul {
+            color: #5C5148;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .concept-card ul {
+            margin-left: 1.2rem;
+        }
+
+        .concept-card li {
+            margin: 0.5rem 0;
+        }
+
+        .concept-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.8rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: #5C5148;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
         }
 
         .video-container {
@@ -368,13 +257,7 @@
             height: 0;
             overflow: hidden;
             border-radius: 1rem;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .video-container:hover {
-            transform: scale(1.02);
-            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
 
         .video-container iframe {
@@ -386,531 +269,413 @@
             border-radius: 1rem;
         }
 
-        ul, ol {
-            margin-left: 1.5rem;
+        .close-btn {
+            background: linear-gradient(135deg, #8D9B6A, #6B7A4A);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 2rem auto;
+            display: block;
+            transition: all 0.3s ease;
         }
 
-        li {
-            margin-bottom: 0.5rem;
-            position: relative;
-            padding-left: 0.5rem;
+        .close-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .list-disc li::marker {
-            color: #8D9B6A;
-        }
-
-        footer {
+        .connection-line {
             text-align: center;
-            color: #7a6c5d;
-            margin-top: 4rem;
-            padding: 2rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-            animation: fadeIn 1s ease-out 1s backwards;
-        }
-
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #8D9B6A, #6B7A4A);
-            z-index: 1000;
-            transition: width 0.1s ease;
-            box-shadow: 0 2px 4px rgba(141, 155, 106, 0.3);
+            color: #8D9B6A;
+            font-size: 2rem;
+            margin: 1rem 0;
         }
 
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 2rem;
-            }
-            
-            .header p {
-                font-size: 1rem;
+                font-size: 1.8rem;
             }
 
-            .section-card {
-                padding: 1.5rem;
+            .main-concept h2 {
+                font-size: 1.6rem;
             }
 
-            .container {
-                padding: 1rem;
+            .branches-container {
+                grid-template-columns: 1fr;
+            }
+
+            .concept-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        ::-webkit-scrollbar {
-            width: 10px;
+        .intro-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
-        ::-webkit-scrollbar-track {
-            background: #F5EDE3;
+        .intro-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: #5C5148;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #8D9B6A, #6B7A4A);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #6B7A4A, #5A6939);
+        .intro-section p {
+            color: #5C5148;
+            line-height: 1.8;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
-<body class="antialiased">
-    <!-- Scroll progress indicator -->
-    <div class="scroll-indicator" id="scrollIndicator"></div>
+<body>
+    <div class="header">
+        <h1>Wiki: Detrás de la Carne</h1>
+        <p>Análisis Integral mediante Mapas Conceptuales Interactivos</p>
+        <div class="info-group">
+            <p><strong>Elaborado por:</strong> Madelyn García y Betsabe Fernández</p>
+            <p><strong>Carrera:</strong> Pedagogía en Lengua y Literatura - Primer Semestre</p>
+        </div>
+    </div>
 
     <div class="container">
-        <!-- Header -->
-        <header class="header text-center">
-            <h1 class="mb-2">Wiki: Detrás de la Carne</h1>
-            <p>Análisis Integral del Documental</p>
-        </header>
+        <!-- Introducción y Video -->
+        <div class="intro-section">
+            <h3>¿Qué es "Detrás de la Carne"?</h3>
+            <p>"Detrás de la Carne" es un documental investigativo que revela la realidad oculta de la industria cárnica, específicamente enfocado en la producción avícola y ganadera. El documental busca exponer los impactos éticos, ambientales, sanitarios y sociales del consumo masivo de productos de origen animal.</p>
+        </div>
 
-        <!-- Interactive Index -->
-        <section id="indice" class="section-card">
-            <h2>Índice</h2>
-            <ol class="list-decimal list-inside space-y-2 md:space-y-1 md:columns-2 lg:columns-3 index-list">
-                <li><a href="#informacion-grupo" class="hover:underline">Información del Grupo</a></li>
-                <li><a href="#introduccion" class="hover:underline">Introducción</a></li>
-                <li><a href="#contexto-general" class="hover:underline">Contexto General</a></li>
-                <li><a href="#dimension-etica-animal" class="hover:underline">Dimensión Ética y Animal</a></li>
-                <li><a href="#dimension-ambiental" class="hover:underline">Dimensión Ambiental</a></li>
-                <li><a href="#dimension-social-laboral" class="hover:underline">Dimensión Social y Laboral</a></li>
-                <li><a href="#dimension-salud" class="hover:underline">Dimensión de Salud</a></li>
-                <li><a href="#dimension-economica" class="hover:underline">Dimensión Económica</a></li>
-                <li><a href="#alternativas-soluciones" class="hover:underline">Alternativas y Soluciones</a></li>
-                <li><a href="#reflexiones-finales" class="hover:underline">Reflexiones Finales</a></li>
-                <li><a href="#referencias-recursos" class="hover:underline">Referencias y Recursos</a></li>
-            </ol>
-        </section>
+        <div class="video-section">
+            <h3>Ver el Documental (Fragmento)</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/YZVB-LQndfo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
 
-        <!-- Información del Grupo -->
-        <section id="informacion-grupo" class="section-card">
-            <h2>Información del Grupo</h2>
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    <span>Ver Detalles del Grupo</span>
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <ul class="list-disc list-inside ml-4 space-y-2 text-gray-700">
-                        <li><strong>Nombres:</strong> Madelyn García y Betsabe Fernández</li>
-                        <li><strong>Carrera:</strong> Pedagogía en Lengua y Literatura</li>
-                        <li><strong>Semestre:</strong> Primer Semestre</li>
+        <div class="connection-line">↓</div>
+
+        <!-- Concepto Principal -->
+        <div class="main-concept" onclick="toggleInfo('intro-map')">
+            <h2>🌱 DETRÁS DE LA CARNE</h2>
+            <p>Impacto Multidimensional de la Industria Cárnica</p>
+            <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">Haz clic para ver el contexto general</p>
+        </div>
+
+        <!-- Mapa Conceptual de Introducción -->
+        <div id="intro-map" class="mind-map">
+            <h2 class="mind-map-title">Contexto General de la Industria Cárnica</h2>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>📊 Datos Globales</h3>
+                    <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&q=80" alt="Industria cárnica global" class="concept-image">
+                    <ul>
+                        <li><strong>65,000 millones</strong> de animales sacrificados anualmente</li>
+                        <li>Proyección de duplicación del consumo en 40 años</li>
+                        <li>Crecimiento exponencial en las últimas décadas</li>
                     </ul>
                 </div>
-            </div>
-        </section>
-
-        <!-- Introducción -->
-        <section id="introduccion" class="section-card">
-            <h2>1. Introducción</h2>
-            <div class="space-y-4">
-                <div>
-                    <h3>¿Qué es "Detrás de la Carne"?</h3>
-                    <p>
-                        "Detrás de la Carne" (o "Tras la Carne") es un documental investigativo que revela la realidad oculta de la industria cárnica, específicamente enfocado en la producción avícola y ganadera. El documental busca exponer los impactos éticos, ambientales, sanitarios y sociales del consumo masivo de productos de origen animal.
-                    </p>
+                <div class="concept-card">
+                    <h3>🏭 Tipos de Producción</h3>
+                    <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=800&q=80" alt="Granjas industriales" class="concept-image">
+                    <ul>
+                        <li><strong>Intensiva/Industrial:</strong> Mayor volumen, condiciones extremas</li>
+                        <li><strong>Extensiva/Tradicional:</strong> Menor escala, mayor espacio</li>
+                        <li><strong>Regenerativa:</strong> Enfoque sostenible emergente</li>
+                    </ul>
                 </div>
-                <div>
-                    <h3>Objetivos del Documental</h3>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li>Visibilizar prácticas que la industria mantiene ocultas</li>
-                        <li>Generar conciencia sobre el impacto multidimensional del consumo de carne</li>
-                        <li>Promover la reflexión sobre nuestras elecciones alimenticias</li>
+                <div class="concept-card">
+                    <h3>🌎 Impacto en Latinoamérica</h3>
+                    <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=800&q=80" alt="Ganadería en Latinoamérica" class="concept-image">
+                    <ul>
+                        <li>Grandes industrias en Chile, Argentina y México</li>
+                        <li>Falta de transparencia y regulación efectiva</li>
+                        <li>Impacto en comunidades rurales e indígenas</li>
+                    </ul>
+                </div>
+                <div class="concept-card">
+                    <h3>🎯 Objetivos del Documental</h3>
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="Investigación documental" class="concept-image">
+                    <ul>
+                        <li>Visibilizar prácticas ocultas de la industria</li>
+                        <li>Generar conciencia sobre impactos múltiples</li>
+                        <li>Promover reflexión sobre elecciones alimenticias</li>
                         <li>Presentar alternativas sostenibles y compasivas</li>
                     </ul>
                 </div>
-                <div>
-                    <h3>Voces Participantes</h3>
-                    <p>El documental incluye testimonios de activistas, veterinarios, nutricionistas, fundadores de santuarios y trabajadores de la industria, quienes ofrecen diferentes perspectivas sobre el tema.</p>
-                </div>
-                <div class="mt-8">
-                    <h3>Ver el Documental (Fragmento)</h3>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/YZVB-LQndfo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
             </div>
-        </section>
+            <button class="close-btn" onclick="toggleInfo('intro-map')">Cerrar</button>
+        </div>
 
-        <!-- Contexto General -->
-        <section id="contexto-general" class="section-card">
-            <h2>2. Contexto General</h2>
-            <div class="space-y-4">
-                <div>
-                    <h3>Datos de la Industria Cárnica Global</h3>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li><strong>Producción Anual:</strong> 65,000 millones de animales sacrificados anualmente a nivel mundial, con una proyección de duplicación del consumo en 40 años.</li>
-                        <li><strong>Tipos de Producción:</strong> Intensiva/Industrial, Extensiva/Tradicional y Regenerativa.</li>
+        <div class="connection-line">↓</div>
+
+        <!-- Ramas principales -->
+        <div class="branches-container">
+            <div class="branch" onclick="toggleInfo('etica-map')">
+                <div class="branch-title">
+                    <span class="branch-icon">🐮</span>
+                    <span>Dimensión Ética y Animal</span>
+                </div>
+                <p class="branch-preview">Condiciones en mataderos, granjas industriales, sintiencia animal y cuestiones morales del especismo.</p>
+            </div>
+
+            <div class="branch" onclick="toggleInfo('ambiental-map')">
+                <div class="branch-title">
+                    <span class="branch-icon">🌍</span>
+                    <span>Dimensión Ambiental</span>
+                </div>
+                <p class="branch-preview">Cambio climático, deforestación, uso de recursos naturales y contaminación masiva.</p>
+            </div>
+
+            <div class="branch" onclick="toggleInfo('social-map')">
+                <div class="branch-title">
+                    <span class="branch-icon">👥</span>
+                    <span>Dimensión Social y Laboral</span>
+                </div>
+                <p class="branch-preview">Condiciones laborales precarias, impacto en comunidades y paradoja de seguridad alimentaria.</p>
+            </div>
+
+            <div class="branch" onclick="toggleInfo('salud-map')">
+                <div class="branch-title">
+                    <span class="branch-icon">⚕️</span>
+                    <span>Dimensión de Salud</span>
+                </div>
+                <p class="branch-preview">Riesgos del consumo excesivo, resistencia a antibióticos y enfermedades zoonóticas.</p>
+            </div>
+
+            <div class="branch" onclick="toggleInfo('economica-map')">
+                <div class="branch-title">
+                    <span class="branch-icon">💰</span>
+                    <span>Dimensión Económica</span>
+                </div>
+                <p class="branch-preview">Poder de la industria, costos ocultos y economía de alternativas emergentes.</p>
+            </div>
+
+            <div class="branch" onclick="toggleInfo('alternativas-map')">
+                <div class="branch-title">
+                    <span class="branch-icon">🌱</span>
+                    <span>Alternativas y Soluciones</span>
+                </div>
+                <p class="branch-preview">Alimentación basada en plantas, reducción gradual, consumo responsable y activismo.</p>
+            </div>
+        </div>
+
+        <!-- Mapas Conceptuales Detallados -->
+
+        <!-- Dimensión Ética -->
+        <div id="etica-map" class="mind-map">
+            <h2 class="mind-map-title">🐮 Dimensión Ética y Animal</h2>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>Condiciones en Mataderos</h3>
+                    <img src="https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?w=800&q=80" alt="Industria cárnica" class="concept-image">
+                    <p>El documental expone el proceso de matanza, incluyendo el aturdimiento, y la controversia sobre si realmente elimina el miedo o la conciencia del animal. Se destaca cómo la industria mantiene estos procesos ocultos al público.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Granjas Industriales - Aves</h3>
+                    <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=800&q=80" alt="Pollos en granjas industriales" class="concept-image">
+                    <ul>
+                        <li>Hacinamiento extremo</li>
+                        <li>Iluminación artificial continua</li>
+                        <li>Manipulación genética</li>
+                        <li>Problemas de locomoción</li>
+                        <li>Mutilaciones sin anestesia</li>
                     </ul>
                 </div>
-                <div>
-                    <h3>La Industria en Latinoamérica</h3>
-                    <p>Chile, Argentina y México tienen grandes industrias cárnicas, caracterizadas por la falta de transparencia y regulación efectiva, con un crecimiento exponencial en las últimas décadas y un impacto significativo en comunidades rurales e indígenas.</p>
+                <div class="concept-card">
+                    <h3>Granjas Industriales - Ganado</h3>
+                    <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=800&q=80" alt="Ganado en confinamiento" class="concept-image">
+                    <ul>
+                        <li>Confinamiento en espacios reducidos</li>
+                        <li>Separación temprana de crías</li>
+                        <li>Inseminación artificial forzada</li>
+                        <li>Uso intensivo de antibióticos y hormonas</li>
+                    </ul>
+                </div>
+                <div class="concept-card">
+                    <h3>Sintiencia Animal</h3>
+                    <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=800&q=80" alt="Animales sintientes" class="concept-image">
+                    <p>Los animales de granja son seres sintientes que experimentan dolor, miedo, estrés y angustia, formando vínculos sociales. Evidencia científica respalda la consciencia en aves y mamíferos con sistemas nerviosos complejos.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Cuestiones Morales</h3>
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800&q=80" alt="Ética animal" class="concept-image">
+                    <p><strong>Especismo:</strong> Discriminación basada en la especie.</p>
+                    <p><strong>Carnismo:</strong> Ideología que justifica el consumo de animales a pesar del amor general por ellos.</p>
+                    <p><strong>Desconexión cognitiva:</strong> Separación entre nuestros valores y acciones.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Bienestar Animal Comprometido</h3>
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Bienestar animal" class="concept-image">
+                    <p>Las condiciones de vida de los animales en sistemas industriales están diseñadas para maximizar la producción, no el bienestar. Esto resulta en sufrimiento físico y psicológico constante durante toda su vida.</p>
                 </div>
             </div>
-        </section>
-
-        <!-- Dimensión Ética y Animal -->
-        <section id="dimension-etica-animal" class="section-card">
-            <h2>3. Dimensión Ética y Animal</h2>
-            <div class="space-y-4">
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>3.1 Condiciones en Mataderos</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>El documental expone el proceso de matanza, incluyendo el aturdimiento, y la controversia sobre si realmente elimina el miedo o la conciencia del animal. Se destaca cómo la industria mantiene estos procesos ocultos al público.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>3.2 Condiciones en Granjas Industriales</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Describe el hacinamiento, la iluminación artificial, la manipulación genética, los problemas de locomoción y las mutilaciones sin anestesia en granjas avícolas. En granjas de ganado, se mencionan el confinamiento, la separación temprana de crías, la inseminación artificial forzada y el uso intensivo de antibióticos y hormonas.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>3.3 Sintiencia Animal</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Se enfatiza que los animales de granja son seres sintientes que experimentan dolor, miedo, estrés y angustia, formando vínculos sociales. Evidencia científica respalda la consciencia en aves y mamíferos con sistemas nerviosos complejos.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>3.4 Cuestiones Morales</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Aborda el especismo (discriminación basada en la especie) y la desconexión cognitiva, donde la ideología del carnismo justifica el consumo de animales a pesar del amor general por ellos.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <button class="close-btn" onclick="toggleInfo('etica-map')">Cerrar</button>
+        </div>
 
         <!-- Dimensión Ambiental -->
-        <section id="dimension-ambiental" class="section-card">
-            <h2>4. Dimensión Ambiental</h2>
-            <div class="space-y-4">
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>4.1 Contribución al Cambio Climático</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>La ganadería es una de las principales fuentes de emisiones de gases de efecto invernadero, como el metano, más potente que el CO2. Se compara la huella de carbono de la carne de res, pollo y legumbres, mostrando la ineficiencia del primero.</p>
-                    </div>
+        <div id="ambiental-map" class="mind-map">
+            <h2 class="mind-map-title">🌍 Dimensión Ambiental</h2>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>Cambio Climático</h3>
+                    <img src="https://images.unsplash.com/photo-1569163139394-de4798aa62b0?w=800&q=80" alt="Cambio climático" class="concept-image">
+                    <p>La ganadería es una de las principales fuentes de emisiones de gases de efecto invernadero, como el metano, más potente que el CO2.</p>
+                    <p><strong>Comparativa de huella de carbono:</strong></p>
+                    <ul>
+                        <li>Carne de res: Alto impacto</li>
+                        <li>Pollo: Impacto medio</li>
+                        <li>Legumbres: Bajo impacto</li>
+                    </ul>
                 </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>4.2 Deforestación</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>El 80% de la deforestación en la Amazonía se atribuye a la ganadería, lo que resulta en pérdida de biodiversidad, desplazamiento de comunidades indígenas y destrucción de ecosistemas. El 77% de la tierra agrícola mundial se usa para ganadería, produciendo solo el 18% de las calorías globales, lo que destaca una ineficiencia extrema.</p>
-                    </div>
+                <div class="concept-card">
+                    <h3>Deforestación</h3>
+                    <img src="https://images.unsplash.com/photo-1615092296061-e2ccfeb2f3d6?w=800&q=80" alt="Deforestación de la Amazonía" class="concept-image">
+                    <ul>
+                        <li><strong>80%</strong> de la deforestación en la Amazonía se atribuye a la ganadería</li>
+                        <li>Pérdida masiva de biodiversidad</li>
+                        <li>Desplazamiento de comunidades indígenas</li>
+                        <li><strong>77%</strong> de tierra agrícola para ganadería</li>
+                        <li>Solo produce el <strong>18%</strong> de calorías globales</li>
+                    </ul>
                 </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>4.3 Uso de Recursos Naturales</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>La producción de carne requiere una cantidad masiva de agua (15,000 litros para 1 kg de carne de res) y tierra, compitiendo con la producción de alimentos humanos y contaminando acuíferos.</p>
-                    </div>
+                <div class="concept-card">
+                    <h3>Uso de Recursos</h3>
+                    <img src="https://images.unsplash.com/photo-1582408921715-18e7806365c1?w=800&q=80" alt="Uso del agua en ganadería" class="concept-image">
+                    <p><strong>Agua:</strong> 15,000 litros para producir 1 kg de carne de res</p>
+                    <p><strong>Tierra:</strong> Uso masivo que compite con producción de alimentos humanos</p>
+                    <p><strong>Impacto:</strong> Contaminación de acuíferos</p>
                 </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>4.4 Contaminación</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Los desechos animales masivos contaminan ríos y suelos, causando eutrofización. Además, químicos como antibióticos, hormonas y pesticidas de cultivos forrajeros llegan al medio ambiente.</p>
-                    </div>
+                <div class="concept-card">
+                    <h3>Contaminación</h3>
+                    <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800&q=80" alt="Contaminación ambiental" class="concept-image">
+                    <ul>
+                        <li>Desechos animales masivos contaminan ríos y suelos</li>
+                        <li>Eutrofización de cuerpos de agua</li>
+                        <li>Químicos: antibióticos, hormonas y pesticidas</li>
+                        <li>Llegan al medio ambiente desde cultivos forrajeros</li>
+                    </ul>
+                </div>
+                <div class="concept-card">
+                    <h3>Pérdida de Biodiversidad</h3>
+                    <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&q=80" alt="Biodiversidad amenazada" class="concept-image">
+                    <p>La expansión de pastizales y cultivos para alimentación animal destruye hábitats naturales, provocando la extinción de especies y el colapso de ecosistemas completos.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Emisiones de Metano</h3>
+                    <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=800&q=80" alt="Emisiones ganaderas" class="concept-image">
+                    <p>El ganado produce metano durante la digestión, un gas de efecto invernadero 28 veces más potente que el CO2. La industria ganadera es responsable del 14.5% de todas las emisiones globales de gases de efecto invernadero.</p>
                 </div>
             </div>
-        </section>
+            <button class="close-btn" onclick="toggleInfo('ambiental-map')">Cerrar</button>
+        </div>
 
         <!-- Dimensión Social y Laboral -->
-        <section id="dimension-social-laboral" class="section-card">
-            <h2>5. Dimensión Social y Laboral</h2>
-            <div class="space-y-4">
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>5.1 Condiciones Laborales</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Los trabajadores de mataderos enfrentan salarios bajos, condiciones precarias, altos riesgos de accidentes y lesiones, y trauma psicológico (TEPT) por el sacrificio constante de animales. También se documenta la explotación de migrantes.</p>
-                    </div>
+        <div id="social-map" class="mind-map">
+            <h2 class="mind-map-title">👥 Dimensión Social y Laboral</h2>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>Condiciones Laborales</h3>
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80" alt="Trabajadores en mataderos" class="concept-image">
+                    <ul>
+                        <li>Salarios bajos y condiciones precarias</li>
+                        <li>Altos riesgos de accidentes y lesiones</li>
+                        <li>Trauma psicológico (TEPT)</li>
+                        <li>Sacrificio constante de animales</li>
+                        <li>Explotación de migrantes</li>
+                    </ul>
                 </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>5.2 Impacto en Comunidades</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>La expansión de la industria cárnica provoca el desplazamiento de comunidades indígenas y pequeños agricultores. La contaminación local (olores, residuos) afecta la calidad de vida y devalúa propiedades.</p>
-                    </div>
+                <div class="concept-card">
+                    <h3>Impacto en Comunidades</h3>
+                    <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=80" alt="Comunidades rurales" class="concept-image">
+                    <p>La expansión de la industria cárnica provoca:</p>
+                    <ul>
+                        <li>Desplazamiento de comunidades indígenas</li>
+                        <li>Afectación a pequeños agricultores</li>
+                        <li>Contaminación local (olores, residuos)</li>
+                        <li>Deterioro de calidad de vida</li>
+                        <li>Devaluación de propiedades</li>
+                    </ul>
                 </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>5.3 Seguridad Alimentaria</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Existe una paradoja del hambre: se cultiva una gran cantidad de alimentos para animales mientras persiste el hambre humana. La carne es costosa, lo que limita su acceso, y los recursos podrían alimentar a más personas directamente si se enfocaran en cultivos para consumo humano.</p>
-                    </div>
+                <div class="concept-card">
+                    <h3>Seguridad Alimentaria</h3>
+                    <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800&q=80" alt="Seguridad alimentaria" class="concept-image">
+                    <p><strong>Paradoja del hambre:</strong> Se cultiva gran cantidad de alimentos para animales mientras persiste el hambre humana.</p>
+                    <p><strong>Acceso limitado:</strong> La carne es costosa, limitando su acceso.</p>
+                    <p><strong>Ineficiencia:</strong> Los recursos podrían alimentar a más personas directamente con cultivos para consumo humano.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Derechos Laborales Vulnerados</h3>
+                    <img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=800&q=80" alt="Derechos laborales" class="concept-image">
+                    <p>Los trabajadores de la industria cárnica frecuentemente carecen de protección laboral adecuada, sindicatos efectivos y atención médica apropiada para las lesiones físicas y mentales que sufren en el trabajo.</p>
                 </div>
             </div>
-        </section>
+            <button class="close-btn" onclick="toggleInfo('social-map')">Cerrar</button>
+        </div>
 
         <!-- Dimensión de Salud -->
-        <section id="dimension-salud" class="section-card">
-            <h2>6. Dimensión de Salud</h2>
-            <div class="space-y-4">
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>6.1 Riesgos del Consumo Excesivo de Carne</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>El consumo elevado de carne está vinculado a enfermedades cardiovasculares, ciertos tipos de cáncer (especialmente carne roja y procesada), diabetes tipo 2 y obesidad, debido a grasas saturadas, colesterol, hierro hemo y compuestos carcinógenos.</p>
-                    </div>
+        <div id="salud-map" class="mind-map">
+            <h2 class="mind-map-title">⚕️ Dimensión de Salud</h2>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>Riesgos del Consumo Excesivo</h3>
+                    <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=800&q=80" alt="Salud cardiovascular" class="concept-image">
+                    <p>El consumo elevado de carne está vinculado a:</p>
+                    <ul>
+                        <li>Enfermedades cardiovasculares</li>
+                        <li>Ciertos tipos de cáncer (carne roja y procesada)</li>
+                        <li>Diabetes tipo 2</li>
+                        <li>Obesidad</li>
+                    </ul>
+                    <p><strong>Causas:</strong> Grasas saturadas, colesterol, hierro hemo y compuestos carcinógenos.</p>
                 </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>6.2 Resistencia a Antibióticos</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>El uso masivo de antibióticos en la ganadería para promover el crecimiento ha llevado a la aparición de "superbacterias" resistentes, generando una crisis de salud pública global con infecciones humanas intratables.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>6.3 Contaminantes</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>La carne puede contener residuos de hormonas, antibióticos, dioxinas y metales pesados, que actúan como disruptores endocrinos y se acumulan en el tejido adiposo humano, con efectos a largo plazo aún poco estudiados.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>6.4 Enfermedades Zoonóticas</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>El 75% de las enfermedades emergentes provienen de animales, y las granjas industriales son ambientes ideales para la mutación y propagación de virus (gripe aviar, porcina, COVID-19), aumentando el riesgo de pandemias.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Dimensión Económica -->
-        <section id="dimension-economica" class="section-card">
-            <h2>7. Dimensión Económica</h2>
-            <div class="space-y-4">
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>7.1 Poder de la Industria</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Unas pocas empresas controlan la mayor parte de la producción cárnica, ejerciendo gran influencia en políticas y precios. Los subsidios gubernamentales reducen artificialmente los costos, creando una competencia desleal con alternativas vegetales.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>7.2 Costos Ocultos</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>La industria no contabiliza las externalidades negativas como el daño ambiental, los costos de salud pública y la pérdida de biodiversidad. Si estos costos se internalizaran, la carne sería mucho más cara.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>7.3 Economía de Alternativas</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>El mercado vegano está experimentando un crecimiento acelerado globalmente, con innovación en productos plant-based y carne cultivada, generando nuevas oportunidades de empleo.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Alternativas y Soluciones -->
-        <section id="alternativas-soluciones" class="section-card">
-            <h2>8. Alternativas y Soluciones</h2>
-            <div class="space-y-4">
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>8.1 Alimentación Basada en Plantas</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Se destacan los beneficios nutricionales de las legumbres, tofu, tempeh, seitán, quinoa, espinacas y semillas, que aportan proteínas, hierro, calcio y omega-3. Hay una gran variedad de recetas y productos sustitutos cada vez más realistas.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>8.2 Reducción Gradual</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Estrategias prácticas incluyen "Lunes sin carne", "Vegano antes de las 6", reducir porciones de carne y sustituir productos animales por vegetales.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>8.3 Consumo Responsable</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Si se consume carne, se recomienda reducir la cantidad y frecuencia, priorizar la producción local y extensiva, evitar carne procesada y conocer la procedencia del producto.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>8.4 Activismo y Educación</span>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Se anima a informarse, apoyar organizaciones de defensa animal, exigir transparencia a las empresas y participar en iniciativas locales. A nivel sistémico, se busca presión política para regulaciones, apoyo a la investigación de alternativas y educación en escuelas.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Reflexiones Finales -->
-        <section id="reflexiones-finales" class="section-card">
-            <h2>9. Reflexiones Finales</h2>
-            <div class="space-y-4">
-                <p>El documental "Detrás de la Carne" visibiliza una realidad oculta que la industria prefiere mantener en secreto. Resalta la desconexión moderna de los consumidores con el origen de sus alimentos, lo que perpetúa prácticas que la mayoría rechazaría si las conociera.</p>
-                <p>El cambio comienza con las decisiones individuales, pero tiene un impacto colectivo. Nos invita a reflexionar sobre la coherencia entre nuestros valores (amor por los animales, preocupación por el planeta, valoración de la salud) y nuestras elecciones alimenticias.</p>
-                <p>El futuro de la alimentación se orienta hacia una mayor conciencia, la reducción del consumo de productos animales, la innovación en alternativas plant-based y sistemas alimentarios más sostenibles. El mensaje final es de esperanza: cada acción, por pequeña que sea, contribuye al progreso. "No necesitamos un puñado de personas haciendo el veganismo perfectamente. Necesitamos millones de personas haciéndolo imperfectamente."</p>
-            </div>
-        </section>
-
-        <!-- Referencias y Recursos -->
-        <section id="referencias-recursos" class="section-card">
-            <h2>10. Referencias y Recursos</h2>
-            <div class="space-y-4">
-                <div>
-                    <h3>Organizaciones Mencionadas</h3>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li><strong>Animal Libre:</strong> Organización internacional enfocada en Latinoamérica, dedicada a investigaciones encubiertas, educación y concienciación.</li>
-                        <li><strong>Santuarios de Animales:</strong> Espacios de rescate que demuestran la personalidad y necesidades de los animales de granja.</li>
+                <div class="concept-card">
+                    <h3>Resistencia a Antibióticos</h3>
+                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80" alt="Antibióticos y bacterias" class="concept-image">
+                    <p>El uso masivo de antibióticos en la ganadería para promover el crecimiento ha llevado a:</p>
+                    <ul>
+                        <li>Aparición de "superbacterias" resistentes</li>
+                        <li>Crisis de salud pública global</li>
+                        <li>Infecciones humanas intratables</li>
                     </ul>
                 </div>
-                <div>
-                    <h3>Documentales Relacionados</h3>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li>Earthlings (2005)</li>
-                        <li>Cowspiracy (2014)</li>
-                        <li>What the Health (2017)</li>
-                        <li>Dominion (2018)</li>
-                        <li>The Game Changers (2018)</li>
-                        <li>Seaspiracy (2021)</li>
-                        <li>You Are What You Eat (Netflix)</li>
+                <div class="concept-card">
+                    <h3>Contaminantes</h3>
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80" alt="Contaminantes químicos" class="concept-image">
+                    <p>La carne puede contener residuos de:</p>
+                    <ul>
+                        <li>Hormonas</li>
+                        <li>Antibióticos</li>
+                        <li>Dioxinas</li>
+                        <li>Metales pesados</li>
                     </ul>
+                    <p>Actúan como disruptores endocrinos y se acumulan en el tejido adiposo humano.</p>
                 </div>
-                <div>
-                    <h3>Recursos de Transición</h3>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li><strong>Nutrición:</strong> Consulta con nutricionistas especializados en alimentación vegetal, apps de seguimiento nutricional y guías de la Academia de Nutrición y Dietética.</li>
-                        <li><strong>Recetas y Cocina:</strong> Blogs especializados en cocina vegana, libros de cocina plant-based y canales de YouTube educativos.</li>
-                        <li><strong>Comunidad:</strong> Grupos locales de apoyo, redes sociales y eventos/talleres de la comunidad vegana.</li>
+                <div class="concept-card">
+                    <h3>Enfermedades Zoonóticas</h3>
+                    <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80" alt="Enfermedades zoonóticas" class="concept-image">
+                    <p><strong>75%</strong> de las enfermedades emergentes provienen de animales. Las granjas industriales son ambientes ideales para la mutación y propagación de virus:</p>
+                    <ul>
+                        <li>Gripe aviar</li>
+                        <li>Gripe porcina</li>
+                        <li>COVID-19</li>
                     </ul>
+                    <p>Aumentando el riesgo de pandemias futuras.</p>
                 </div>
-                <div>
-                    <h3>Lectura Complementaria</h3>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li>"Comer Animales" - Jonathan Safran Foer</li>
-                        <li>"Por qué amamos a los perros, nos comemos a los cerdos y nos vestimos con las vacas" - Melanie Joy</li>
-                        <li>"El Dilema del Omnívoro" - Michael Pollan</li>
-                        <li>Estudios Científicos (Informes de la ONU, OMS, investigaciones sobre resistencia antibióticos)</li>
-                    </ul>
+                <div class="concept-card">
+                    <h3>Impacto en la Nutrición</h3>
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80" alt="Nutrición saludable" class="concept-image">
+                    <p>El consumo excesivo de productos animales desplaza alimentos nutritivos de origen vegetal que son esenciales para una dieta equilibrada, como frutas, verduras, legumbres y granos enteros.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center text-gray-600 mt-8 py-4 text-sm">
-            <p>&copy; Octubre 2025. Elaborado para fines educativos y de reflexión crítica.</p>
-        </footer>
-    </div>
-
-    <script>
-        function toggleAccordion(button) {
-            const content = button.nextElementSibling;
-            const icon = button.querySelector('.toggle-icon');
-            const isActive = content.classList.contains('active');
-
-            const parentSection = button.closest('.section-card');
-            parentSection.querySelectorAll('.accordion-content.active').forEach(openContent => {
-                if(openContent !== content) {
-                    openContent.classList.remove('active');
-                    const openButton = openContent.previousElementSibling;
-                    const openIcon = openButton.querySelector('.toggle-icon');
-                    openIcon.classList.remove('rotate');
-                }
-            });
-            
-            content.classList.toggle('active');
-            icon.classList.toggle('rotate');
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            const scrollIndicator = document.getElementById('scrollIndicator');
-            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (window.scrollY / windowHeight) * 100;
-            scrollIndicator.style.width = scrolled + '%';
-        });
-
-        console.log('%c¡Bienvenido a Wiki: Detrás de la Carne! 🌱', 
-            'font-size: 20px; font-weight: bold; color: #8D9B6A;');
-    </script>
-</body>
-</html>
+                <div class="concept-card">
+                    <h3>Costo en Salud Pública</h3>
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="Sistema de salud" class="concept-image">
+                    <p>Las enfermedades relacionadas con el consumo de carne generan costos enormes en sistemas de salud pública, incluyendo tratamientos para enfermedades crónicas y atención a brotes de resistencia bacteriana.</p>
+                </div>
