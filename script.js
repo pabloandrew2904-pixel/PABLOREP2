@@ -5,17 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
     const body = document.body;
     
-    // Cargar preferencia guardada
+    // Cargar preferencia guardada del localStorage
     const darkModePreference = localStorage.getItem('darkMode');
     if (darkModePreference === 'enabled') {
         body.classList.add('dark-mode');
     }
     
-    // Toggle modo oscuro
+    // Toggle modo oscuro al hacer clic
     darkModeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         
-        // Guardar preferencia
+        // Guardar preferencia en localStorage
         if (body.classList.contains('dark-mode')) {
             localStorage.setItem('darkMode', 'enabled');
         } else {
@@ -172,9 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
         img.addEventListener('error', function() {
             console.warn('Imagen no disponible:', this.src);
             this.style.display = 'none';
-            // Intentar recargar con un parámetro diferente
-            const originalSrc = this.src;
-            this.src = originalSrc.replace('&fit=crop', '') + '&auto=format';
         });
         
         // Precargar imagen al estar visible
@@ -262,13 +259,13 @@ document.addEventListener('DOMContentLoaded', function() {
             activeTopics.forEach(topic => topic.classList.remove('active'));
         }
         
-        // Flecha arriba para scroll to top
+        // Home para scroll to top
         if (e.key === 'Home') {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
-        // Flecha abajo para scroll to bottom
+        // End para scroll to bottom
         if (e.key === 'End') {
             e.preventDefault();
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
@@ -276,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // D para toggle dark mode
         if (e.key === 'd' || e.key === 'D') {
-            if (!e.ctrlKey && !e.metaKey) {
+            if (!e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
                 darkModeToggle.click();
             }
         }
@@ -295,11 +292,6 @@ document.addEventListener('DOMContentLoaded', function() {
             timeout = setTimeout(later, wait);
         };
     }
-
-    // Aplicar throttle a eventos intensivos
-    const throttledScroll = throttle(() => {
-        // Código que se ejecuta en scroll (ya implementado arriba)
-    }, 16);
 
     // ==================== RESPONSIVE BEHAVIOR ====================
     function checkViewport() {
@@ -359,12 +351,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Actualizar aria-expanded cuando cambie el estado
-        const observer = new MutationObserver(() => {
+        const mutationObserver = new MutationObserver(() => {
             const isActive = item.classList.contains('active');
             header.setAttribute('aria-expanded', isActive);
         });
         
-        observer.observe(item, { attributes: true, attributeFilter: ['class'] });
+        mutationObserver.observe(item, { attributes: true, attributeFilter: ['class'] });
     });
 
     // ==================== ERROR HANDLING PARA IMÁGENES ====================
@@ -382,5 +374,18 @@ document.addEventListener('DOMContentLoaded', function() {
             darkModeToggle.style.animation = '';
         }, 2000);
     }, 1000);
+
+    // ==================== TOOLTIP PARA BOTÓN DARK MODE ====================
+    let tooltipTimeout;
+    darkModeToggle.addEventListener('mouseenter', () => {
+        clearTimeout(tooltipTimeout);
+        tooltipTimeout = setTimeout(() => {
+            console.log('💡 Tip: Presiona "D" para cambiar el modo oscuro');
+        }, 2000);
+    });
+
+    darkModeToggle.addEventListener('mouseleave', () => {
+        clearTimeout(tooltipTimeout);
+    });
 
 }); // Fin DOMContentLoaded
