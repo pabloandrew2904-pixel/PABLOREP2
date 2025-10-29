@@ -116,26 +116,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ==================== LAZY LOADING PARA IMÁGENES ====================
+    // ==================== MANEJO DE IMÁGENES ====================
     const images = document.querySelectorAll('.topic-image');
     
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.style.opacity = '0';
-                
-                img.onload = () => {
-                    img.style.transition = 'opacity 0.5s ease';
-                    img.style.opacity = '1';
-                };
-                
-                observer.unobserve(img);
+    // Cargar imágenes cuando el topic se active
+    topicItems.forEach(item => {
+        const header = item.querySelector('.topic-header');
+        
+        header.addEventListener('click', () => {
+            if (item.classList.contains('active')) {
+                const img = item.querySelector('.topic-image');
+                if (img && !img.complete) {
+                    img.style.opacity = '0';
+                    img.onload = () => {
+                        setTimeout(() => {
+                            img.style.transition = 'opacity 0.5s ease';
+                            img.style.opacity = '1';
+                        }, 100);
+                    };
+                }
             }
         });
     });
-    
-    images.forEach(img => imageObserver.observe(img));
+
+    // Error handling para imágenes
+    images.forEach(img => {
+        img.addEventListener('error', function() {
+            console.warn('Imagen no disponible:', this.src);
+            this.style.display = 'none';
+            // Intentar recargar con un parámetro diferente
+            const originalSrc = this.src;
+            this.src = originalSrc.replace('&fit=crop', '') + '&auto=format';
+        });
+        
+        // Precargar imagen al estar visible
+        img.loading = 'eager';
+    });
 
     // ==================== ANIMACIÓN DE NÚMEROS (SI HAY ESTADÍSTICAS) ====================
     function animateNumber(element, target, duration = 2000) {
