@@ -71,7 +71,6 @@
             max-width: 800px;
             cursor: pointer;
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .main-concept:hover {
@@ -92,9 +91,12 @@
 
         .branches-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin: 3rem 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .branch {
@@ -150,7 +152,8 @@
             background: white;
             border-radius: 1.5rem;
             padding: 3rem;
-            margin: 2rem 0;
+            margin: 2rem auto;
+            max-width: 1400px;
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
             animation: slideDown 0.5s ease;
         }
@@ -185,12 +188,6 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin: 2rem 0;
-        }
-
-        @media (max-width: 900px) {
-            .concept-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .concept-card {
@@ -295,24 +292,6 @@
             margin: 1rem 0;
         }
 
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8rem;
-            }
-
-            .main-concept h2 {
-                font-size: 1.6rem;
-            }
-
-            .branches-container {
-                grid-template-columns: 1fr;
-            }
-
-            .concept-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .intro-section {
             background: rgba(255, 255, 255, 0.95);
             padding: 2rem;
@@ -333,6 +312,33 @@
             color: #5C5148;
             line-height: 1.8;
             margin-bottom: 1rem;
+        }
+
+        .intro-section ul {
+            margin-left: 2rem;
+            color: #5C5148;
+        }
+
+        .intro-section li {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 900px) {
+            .branches-container {
+                grid-template-columns: 1fr;
+            }
+
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .main-concept h2 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
@@ -363,7 +369,7 @@
         <div class="connection-line">↓</div>
 
         <!-- Concepto Principal -->
-        <div class="main-concept" onclick="toggleInfo('intro-map')">
+        <div class="main-concept" onclick="toggleMap('intro-map')">
             <h2>🌱 DETRÁS DE LA CARNE</h2>
             <p>Impacto Multidimensional de la Industria Cárnica</p>
             <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">Haz clic para ver el contexto general</p>
@@ -411,14 +417,14 @@
                     </ul>
                 </div>
             </div>
-            <button class="close-btn" onclick="toggleInfo('intro-map')">Cerrar</button>
+            <button class="close-btn" onclick="toggleMap('intro-map')">Cerrar</button>
         </div>
 
         <div class="connection-line">↓</div>
 
-        <!-- Ramas principales -->
+        <!-- Ramas principales (SOLO 2 COLUMNAS) -->
         <div class="branches-container">
-            <div class="branch" onclick="toggleInfo('etica-map')">
+            <div class="branch" onclick="toggleMap('etica-map')">
                 <div class="branch-title">
                     <span class="branch-icon">🐮</span>
                     <span>Dimensión Ética y Animal</span>
@@ -426,7 +432,7 @@
                 <p class="branch-preview">Condiciones en mataderos, granjas industriales, sintiencia animal y cuestiones morales del especismo.</p>
             </div>
 
-            <div class="branch" onclick="toggleInfo('ambiental-map')">
+            <div class="branch" onclick="toggleMap('ambiental-map')">
                 <div class="branch-title">
                     <span class="branch-icon">🌍</span>
                     <span>Dimensión Ambiental</span>
@@ -434,7 +440,7 @@
                 <p class="branch-preview">Cambio climático, deforestación, uso de recursos naturales y contaminación masiva.</p>
             </div>
 
-            <div class="branch" onclick="toggleInfo('social-map')">
+            <div class="branch" onclick="toggleMap('social-map')">
                 <div class="branch-title">
                     <span class="branch-icon">👥</span>
                     <span>Dimensión Social y Laboral</span>
@@ -442,7 +448,7 @@
                 <p class="branch-preview">Condiciones laborales precarias, impacto en comunidades y paradoja de seguridad alimentaria.</p>
             </div>
 
-            <div class="branch" onclick="toggleInfo('salud-map')">
+            <div class="branch" onclick="toggleMap('salud-map')">
                 <div class="branch-title">
                     <span class="branch-icon">⚕️</span>
                     <span>Dimensión de Salud</span>
@@ -450,7 +456,7 @@
                 <p class="branch-preview">Riesgos del consumo excesivo, resistencia a antibióticos y enfermedades zoonóticas.</p>
             </div>
 
-            <div class="branch" onclick="toggleInfo('economica-map')">
+            <div class="branch" onclick="toggleMap('economica-map')">
                 <div class="branch-title">
                     <span class="branch-icon">💰</span>
                     <span>Dimensión Económica</span>
@@ -458,7 +464,7 @@
                 <p class="branch-preview">Poder de la industria, costos ocultos y economía de alternativas emergentes.</p>
             </div>
 
-            <div class="branch" onclick="toggleInfo('alternativas-map')">
+            <div class="branch" onclick="toggleMap('alternativas-map')">
                 <div class="branch-title">
                     <span class="branch-icon">🌱</span>
                     <span>Alternativas y Soluciones</span>
@@ -517,7 +523,7 @@
                     <p>Las condiciones de vida de los animales en sistemas industriales están diseñadas para maximizar la producción, no el bienestar. Esto resulta en sufrimiento físico y psicológico constante durante toda su vida.</p>
                 </div>
             </div>
-            <button class="close-btn" onclick="toggleInfo('etica-map')">Cerrar</button>
+            <button class="close-btn" onclick="toggleMap('etica-map')">Cerrar</button>
         </div>
 
         <!-- Dimensión Ambiental -->
@@ -574,7 +580,7 @@
                     <p>El ganado produce metano durante la digestión, un gas de efecto invernadero 28 veces más potente que el CO2. La industria ganadera es responsable del 14.5% de todas las emisiones globales de gases de efecto invernadero.</p>
                 </div>
             </div>
-            <button class="close-btn" onclick="toggleInfo('ambiental-map')">Cerrar</button>
+            <button class="close-btn" onclick="toggleMap('ambiental-map')">Cerrar</button>
         </div>
 
         <!-- Dimensión Social y Laboral -->
@@ -617,7 +623,7 @@
                     <p>Los trabajadores de la industria cárnica frecuentemente carecen de protección laboral adecuada, sindicatos efectivos y atención médica apropiada para las lesiones físicas y mentales que sufren en el trabajo.</p>
                 </div>
             </div>
-            <button class="close-btn" onclick="toggleInfo('social-map')">Cerrar</button>
+            <button class="close-btn" onclick="toggleMap('social-map')">Cerrar</button>
         </div>
 
         <!-- Dimensión de Salud -->
@@ -679,3 +685,185 @@
                     <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="Sistema de salud" class="concept-image">
                     <p>Las enfermedades relacionadas con el consumo de carne generan costos enormes en sistemas de salud pública, incluyendo tratamientos para enfermedades crónicas y atención a brotes de resistencia bacteriana.</p>
                 </div>
+            </div>
+            <button class="close-btn" onclick="toggleMap('salud-map')">Cerrar</button>
+        </div>
+
+        <!-- Dimensión Económica -->
+        <div id="economica-map" class="mind-map">
+            <h2 class="mind-map-title">💰 Dimensión Económica</h2>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>Poder de la Industria</h3>
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Poder corporativo" class="concept-image">
+                    <p>Unas pocas empresas controlan la mayor parte de la producción cárnica, ejerciendo gran influencia en políticas y precios.</p>
+                    <p>Los subsidios gubernamentales reducen artificialmente los costos, creando una competencia desleal con alternativas vegetales.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Costos Ocultos</h3>
+                    <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=800&q=80" alt="Costos ambientales" class="concept-image">
+                    <p>La industria no contabiliza las externalidades negativas:</p>
+                    <ul>
+                        <li>Daño ambiental</li>
+                        <li>Costos de salud pública</li>
+                        <li>Pérdida de biodiversidad</li>
+                    </ul>
+                    <p>Si estos costos se internalizaran, la carne sería mucho más cara.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Economía de Alternativas</h3>
+                    <img src="https://images.unsplash.com/photo-1585238341710-4b34ab4ed128?w=800&q=80" alt="Productos plant-based" class="concept-image">
+                    <p>El mercado vegano está experimentando un crecimiento acelerado globalmente:</p>
+                    <ul>
+                        <li>Innovación en productos plant-based</li>
+                        <li>Desarrollo de carne cultivada</li>
+                        <li>Generación de nuevas oportunidades de empleo</li>
+                        <li>Inversión creciente en tecnología alimentaria</li>
+                    </ul>
+                </div>
+                <div class="concept-card">
+                    <h3>Concentración del Mercado</h3>
+                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&q=80" alt="Monopolios" class="concept-image">
+                    <p>La concentración de poder en pocas corporaciones limita la competencia, controla precios al productor y al consumidor, y ejerce presión política para mantener regulaciones favorables a la industria.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Subsidios Públicos</h3>
+                    <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=800&q=80" alt="Subsidios agrícolas" class="concept-image">
+                    <p>Los gobiernos destinan miles de millones en subsidios a la industria cárnica, mientras que las alternativas vegetales reciben una fracción mínima de este apoyo financiero.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Futuro Económico Sostenible</h3>
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Economía sostenible" class="concept-image">
+                    <p>La transición hacia sistemas alimentarios basados en plantas podría generar nuevas industrias, empleos verdes y un modelo económico más resiliente y menos dependiente de recursos finitos.</p>
+                </div>
+            </div>
+            <button class="close-btn" onclick="toggleMap('economica-map')">Cerrar</button>
+        </div>
+
+        <!-- Alternativas y Soluciones -->
+        <div id="alternativas-map" class="mind-map">
+            <h2 class="mind-map-title">🌱 Alternativas y Soluciones</h2>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>Alimentación Basada en Plantas</h3>
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80" alt="Alimentación vegetal" class="concept-image">
+                    <p><strong>Fuentes de proteína:</strong></p>
+                    <ul>
+                        <li>Legumbres (lentejas, garbanzos, frijoles)</li>
+                        <li>Tofu, tempeh y seitán</li>
+                        <li>Quinoa y otros pseudocereales</li>
+                        <li>Espinacas y vegetales de hoja verde</li>
+                        <li>Semillas (chía, hemp, girasol)</li>
+                    </ul>
+                    <p>Gran variedad de recetas y productos sustitutos cada vez más realistas.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>Reducción Gradual</h3>
+                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=800&q=80" alt="Dieta equilibrada" class="concept-image">
+                    <p><strong>Estrategias prácticas:</strong></p>
+                    <ul>
+                        <li>"Lunes sin carne"</li>
+                        <li>"Vegano antes de las 6"</li>
+                        <li>Reducir porciones de carne gradualmente</li>
+                        <li>Sustituir productos animales por vegetales</li>
+                        <li>Probar una nueva receta vegana cada semana</li>
+                    </ul>
+                </div>
+                <div class="concept-card">
+                    <h3>Consumo Responsable</h3>
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80" alt="Consumo responsable" class="concept-image">
+                    <p>Si se consume carne, se recomienda:</p>
+                    <ul>
+                        <li>Reducir la cantidad y frecuencia</li>
+                        <li>Priorizar producción local y extensiva</li>
+                        <li>Evitar carne procesada</li>
+                        <li>Conocer la procedencia del producto</li>
+                        <li>Elegir productores con estándares éticos</li>
+                    </ul>
+                </div>
+                <div class="concept-card">
+                    <h3>Activismo y Educación</h3>
+                    <img src="https://images.unsplash.com/photo-1573495627361-d9b87960b12d?w=800&q=80" alt="Activismo" class="concept-image">
+                    <p><strong>Acciones individuales:</strong></p>
+                    <ul>
+                        <li>Informarse sobre el tema</li>
+                        <li>Apoyar organizaciones de defensa animal</li>
+                        <li>Exigir transparencia a las empresas</li>
+                        <li>Participar en iniciativas locales</li>
+                        <li>Compartir información con otros</li>
+                    </ul>
+                </div>
+                <div class="concept-card">
+                    <h3>Cambio Sistémico</h3>
+                    <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=800&q=80" alt="Cambio sistémico" class="concept-image">
+                    <p><strong>A nivel político:</strong></p>
+                    <ul>
+                        <li>Presión para mejores regulaciones</li>
+                        <li>Apoyo a investigación de alternativas</li>
+                        <li>Educación en escuelas sobre nutrición vegetal</li>
+                        <li>Redirección de subsidios hacia agricultura sostenible</li>
+                    </ul>
+                </div>
+                <div class="concept-card">
+                    <h3>Innovación Tecnológica</h3>
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80" alt="Innovación alimentaria" class="concept-image">
+                    <p>El futuro incluye:</p>
+                    <ul>
+                        <li>Carne cultivada en laboratorio</li>
+                        <li>Proteínas de fermentación</li>
+                        <li>Mejores imitaciones de textura y sabor</li>
+                        <li>Agricultura vertical y urbana</li>
+                        <li>Sistemas alimentarios más eficientes</li>
+                    </ul>
+                </div>
+            </div>
+            <button class="close-btn" onclick="toggleMap('alternativas-map')">Cerrar</button>
+        </div>
+
+        <!-- Reflexiones Finales -->
+        <div class="intro-section" style="margin-top: 3rem;">
+            <h3>💭 Reflexiones Finales</h3>
+            <p>El documental "Detrás de la Carne" visibiliza una realidad oculta que la industria prefiere mantener en secreto. Resalta la desconexión moderna de los consumidores con el origen de sus alimentos, lo que perpetúa prácticas que la mayoría rechazaría si las conociera.</p>
+            <p>El cambio comienza con las decisiones individuales, pero tiene un impacto colectivo. Nos invita a reflexionar sobre la coherencia entre nuestros valores (amor por los animales, preocupación por el planeta, valoración de la salud) y nuestras elecciones alimenticias.</p>
+            <p><strong>El mensaje final es de esperanza:</strong> Cada acción, por pequeña que sea, contribuye al progreso. "No necesitamos un puñado de personas haciendo el veganismo perfectamente. Necesitamos millones de personas haciéndolo imperfectamente."</p>
+        </div>
+
+        <!-- Recursos -->
+        <div class="intro-section">
+            <h3>📚 Referencias y Recursos</h3>
+            <p><strong>Organizaciones:</strong></p>
+            <ul>
+                <li>Animal Libre - Organización latinoamericana dedicada a investigaciones y educación</li>
+                <li>Santuarios de Animales - Espacios de rescate y concienciación</li>
+            </ul>
+            <p><strong>Documentales Relacionados:</strong> Earthlings (2005), Cowspiracy (2014), What the Health (2017), Dominion (2018), The Game Changers (2018), Seaspiracy (2021)</p>
+            <p><strong>Lectura Complementaria:</strong> "Comer Animales" - Jonathan Safran Foer, "Por qué amamos a los perros, nos comemos a los cerdos y nos vestimos con las vacas" - Melanie Joy</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMap(mapId) {
+            const map = document.getElementById(mapId);
+            const allMaps = document.querySelectorAll('.mind-map');
+            
+            // Cerrar todos los otros mapas
+            allMaps.forEach(m => {
+                if (m.id !== mapId) {
+                    m.classList.remove('active');
+                }
+            });
+            
+            // Alternar el mapa clickeado
+            if (map.classList.contains('active')) {
+                map.classList.remove('active');
+            } else {
+                map.classList.add('active');
+                // Hacer scroll suave hacia el mapa
+                setTimeout(() => {
+                    map.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>
