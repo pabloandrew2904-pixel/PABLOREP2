@@ -1,6 +1,34 @@
 // ==================== ESPERAR A QUE EL DOM ESTÉ LISTO ====================
 document.addEventListener('DOMContentLoaded', function() {
     
+    // ==================== MODO OSCURO ====================
+    const darkModeToggle = document.querySelector('.dark-mode-toggle');
+    const body = document.body;
+    
+    // Cargar preferencia guardada
+    const darkModePreference = localStorage.getItem('darkMode');
+    if (darkModePreference === 'enabled') {
+        body.classList.add('dark-mode');
+    }
+    
+    // Toggle modo oscuro
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        
+        // Guardar preferencia
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+        
+        // Animación extra al hacer clic
+        darkModeToggle.style.transform = 'scale(0.9) rotate(360deg)';
+        setTimeout(() => {
+            darkModeToggle.style.transform = '';
+        }, 400);
+    });
+    
     // ==================== SCROLL PROGRESS BAR ====================
     const scrollProgress = document.querySelector('.scroll-progress');
     
@@ -245,6 +273,13 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
+        
+        // D para toggle dark mode
+        if (e.key === 'd' || e.key === 'D') {
+            if (!e.ctrlKey && !e.metaKey) {
+                darkModeToggle.click();
+            }
+        }
     });
 
     // ==================== PERFORMANCE OPTIMIZATION ====================
@@ -339,5 +374,13 @@ document.addEventListener('DOMContentLoaded', function() {
             console.warn('Imagen no cargada:', this.src);
         });
     });
+
+    // ==================== ANIMACIÓN INICIAL DEL BOTÓN DARK MODE ====================
+    setTimeout(() => {
+        darkModeToggle.style.animation = 'pulse-ring 2s ease-in-out';
+        setTimeout(() => {
+            darkModeToggle.style.animation = '';
+        }, 2000);
+    }, 1000);
 
 }); // Fin DOMContentLoaded
